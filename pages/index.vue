@@ -4,8 +4,8 @@
       <GridPattern />
       <div class="text-center">
         <div class="mb-10">
-          <SectionBadge text="New Promo Pembuatan Website Oktober 2024 ✨" icon="i-material-symbols-favorite"
-            href="https://nuxt.com/" shiny />
+          <SectionBadge text="New Promo Pembuatan Website Oktober 2024 ✨" icon="i-material-symbols-favorite" href="/"
+            shiny />
         </div>
         <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-7xl">
           Welcome to, <span class="magic-text">Taractech</span> !
@@ -52,7 +52,7 @@
           maksimal dengan solusi inovatif.
         </div>
       </div>
-      <img src="https://source.unsplash.com/featured/?consulting,technology" />
+      <img src="/layanan/2.png" class="rounded-xl shadow-sm" />
 
       <!-- <ImagePlaceholder /> -->
     </PageSection>
@@ -67,7 +67,7 @@
           operasional secara signifikan.
         </div>
       </div>
-      <img src="/taratech_logo.png" />
+      <img src="/layanan/1.png" class="rounded-xl shadow-sm" />
       <!-- <ImagePlaceholder /> -->
     </PageSection>
     <PageSection v-motion-slide-visible-left>
@@ -76,16 +76,16 @@
           Digital Marketing
         </h2>
         <div class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-          Aliqua labore laboris fugiat. Reprehenderit exercitation eu commodo. Officia nostrud sit et aliqua ea ex sunt
-          minim incididunt sunt.
+          Kami menyediakan layanan digital marketing yang efektif dan efisien untuk membantu bisnis Anda
+          mencapai tujuan marketing yang efektif dan efisien.
         </div>
       </div>
-
-      <ImagePlaceholder />
+      <img src="/layanan/3.png" class="rounded-xl shadow-sm" />
+      <!-- <ImagePlaceholder /> -->
     </PageSection>
 
     <PageSection v-motion-fade-visible column>
-      <div class="text-center flex flex-col items-center">
+      <div id="client" class="text-center flex flex-col items-center">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
           Temukan<span class="magic-text"> solusi kami </span> untuk para <span class="magic-text">Mitra</span>
           Kami?
@@ -121,27 +121,30 @@
 
     <PageSection v-motion-fade-visible column>
       <div class="text-center flex flex-col items-center">
-        <SectionBadge text="Pricing" shiny only-text class="mb-2" />
+        <SectionBadge id="services" text="Pricing" shiny only-text class="mb-2" />
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
-          Prices, prices and more prices
+          Service dan Layanan
         </h2>
         <div class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.
+          Kami menyediakan layanan yang sesuai dengan kebutuhan bisnis Anda untuk meningkatkan operasional secara
+          signifikan.
         </div>
       </div>
 
+      <!-- tabel harga -->
       <PricingTable />
     </PageSection>
 
     <PageSection v-motion-fade-visible column>
       <div class="text-center flex flex-col items-center">
-        <SectionBadge text="Testimonials" shiny only-text class="mb-2" />
+        <SectionBadge id="testimoni" text="Testimonials" shiny only-text class="mb-2" />
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
-          What our <span class="text-gray-500 font-light line-through">fake</span> costumers are saying
+          <!-- What our <span class="text-gray-500 font-light line-through">fake</span> costumers are saying -->
+          What our all our user are saying
         </h2>
         <div class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-          Proident sunt exercitation minim laborum enim laboris labore esse.
+          Kami menyediakan layanan yang sesuai dengan kebutuhan bisnis Anda untuk meningkatkan operasional secara
+          signifikan.
         </div>
       </div>
 
@@ -170,26 +173,53 @@
         </div>
         <div class="flex flex-col gap-16 sm:gap-y-10 px-4 sm:p-6 py-24 sm:py-32 sm:px-16 relative">
           <div
-            class="mx-auto size-24 items-center justify-center flex rounded-[2rem] border dark:border-gray-600 bg-white/10 p-3 shadow-2xl backdrop-blur-lg dark:bg-black/10 lg:size-32">
-            <Icon name="i-lucide-heart-handshake" class="mx-auto size-16 text-black dark:text-white lg:size-24" />
+            class="mx-auto size-24 items-center justify-center flex rounded-[2rem] border dark:border-gray-600 bg-white/40 p-3 shadow-2xl backdrop-blur-lg dark:bg-black/10 lg:size-32">
+            <NuxtImg :src="colorMode.value === 'dark' ? '/taratech_logo.png' : '/taratech_logo.png'" alt="Hero Image"
+              class="max-w-full rounded-xl h-auto mx-auto [mask-image:linear-gradient(to_bottom,_white_40%,_transparent_100%)] z-[2] relative" />
           </div>
           <div class="text-center">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Get started/join us
+              Get in Touch
             </h2>
-            <div class="mt-2 text-lg/8 text-gray-600 dark:text-gray-300">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <div class="mt-2 text-lg text-gray-600 dark:text-gray-300">
+              We would love to hear from you! Please fill out the form below.
             </div>
-            <div class="mt-5 flex items-center gap-x-6 justify-center ">
-              <Button>
-                Get started
-                <Icon name="i-heroicons-arrow-right" class="w-4 h-4 ml-2" />
-              </Button>
-            </div>
+          </div>
+          <!-- Contact Form Card -->
+          <div class="w-full mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+            <form class="space-y-6" @submit.prevent="handleSubmit">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+                <input v-model="form.name" type="text" id="name" required
+                  class="h-[40px] p-2 mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50"
+                  placeholder="Your Name" />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                <input v-model="form.email" type="email" id="email" required
+                  class="h-[40px] p-2 mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50"
+                  placeholder="Your Email" />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                <textarea v-model="form.message" id="message" required rows="4"
+                  class="p-2 mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50"
+                  placeholder="Your Message"></textarea>
+              </div>
+              <div class="flex items-center justify-center">
+                <Button type="submit" class="bg-purple-500 text-white hover:bg-purple-600 transition duration-300">
+                  Send Message
+                  <Icon name="i-heroicons-arrow-right" class="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+      <Toast v-if="success" message="Message sent successfully!" @close="success = false" />
     </PageSection>
+
+
   </div>
 </template>
 
@@ -286,6 +316,40 @@ const mitra_kami = [
     description: "Website badut timoho"
   }
 ]
+
+import { ref } from 'vue';
+
+const form = ref({
+  name: '',
+  email: '',
+  message: '',
+});
+
+const success = ref(false);
+
+const handleSubmit = async () => {
+  const { name, email, message } = form.value;
+  const waNumber = '+62 815-7840-1214';
+  const messageEncoded = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+  const whatsappUrl = `https://wa.me/${waNumber}?text=${messageEncoded}`;
+  useToast().toast({
+    title: "Message Sent",
+    description: "Your message has been sent",
+    variant: "success",
+    icon: "i-heroicons-check-circle",
+  });
+  try {
+    window.open(whatsappUrl, '_blank');
+    success.value = true; // Show success toast
+    // Reset form
+    form.value.name = '';
+    form.value.email = '';
+    form.value.message = '';
+  } catch (error) {
+    console.error('Error sending message', error);
+    // Optionally handle errors
+  }
+};
 
 const firstTestimonialsRow = testimonials.slice(0, testimonials.length / 2)
 const secondTestimonialsRow = testimonials.slice(testimonials.length / 2)

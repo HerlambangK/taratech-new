@@ -1,31 +1,36 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ["@/assets/css/base.css"],
+  css: ["@/assets/css/tailwind.css"],
+
   devtools: {
-    enabled: true
+    enabled: true,
   },
+
   site: {
-    // production URL
-    url: "https://nuxt-startup-landing-page.vercel.app/"
+    url: "",
   },
+
   typescript: {
-    strict: false
+    strict: false,
   },
+
   future: {
-    compatibilityVersion: 4
+    compatibilityVersion: 4,
   },
+
   app: {
     head: {
-      title: "Nuxt 3 Startup Landing Page",
+      title: "Taratech ",
       htmlAttrs: {
-        lang: "en"
+        lang: "en",
       },
       meta: [
         { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" }
-      ]
-    }
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+      ],
+    },
   },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "nuxt-og-image",
@@ -34,23 +39,27 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/icon",
     "@nuxtjs/color-mode",
-    "@vueuse/motion/nuxt"
+    "@vueuse/motion/nuxt",
+    "@vueuse/nuxt",
   ],
+
   eslint: {
     config: {
       stylistic: {
         quotes: "double",
         commaDangle: "never",
-        braceStyle: "1tbs"
-      }
-    }
+        braceStyle: "1tbs",
+      },
+    },
   },
+
   colorMode: {
     classSuffix: "",
     preference: "system",
     fallback: "light",
-    disableTransition: true
+    disableTransition: true,
   },
+
   runtimeConfig: {
     public: {
       motion: {
@@ -59,17 +68,36 @@ export default defineNuxtConfig({
             initial: {
               scale: 0,
               opacity: 0,
-              y: 100
+              y: 100,
             },
             visible: {
               scale: 1,
               opacity: 1,
-              y: 0
-            }
-          }
-        }
-      }
-    }
+              y: 0,
+            },
+          },
+        },
+      },
+    },
   },
-  ssr: true
-})
+
+  ssr: true,
+
+  tailwindcss: {
+    exposeConfig: true,
+  },
+
+  imports: {
+    imports: [
+      {
+        from: "tailwind-variants",
+        name: "tv",
+      },
+      {
+        from: "tailwind-variants",
+        name: "VariantProps",
+        type: true,
+      },
+    ],
+  },
+});

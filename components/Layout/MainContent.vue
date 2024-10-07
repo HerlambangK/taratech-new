@@ -1,15 +1,9 @@
 <template>
-  <main
-    class="min-h-[calc(100vh-4rem)] overflow-hidden"
-  >
+  <main class="min-h-[calc(100vh-4rem)] overflow-hidden">
     <slot />
   </main>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<style>
-
-</style>
+<style></style>

@@ -23,18 +23,18 @@
 </template>
 
 <script setup lang="ts">
-const colorMode = useColorMode()
+  const colorMode = useColorMode();
 
-const toggleColorMode = () => {
-  if (colorMode.value === "light") {
-    setColorMode("dark")
-  } else {
-    setColorMode("light")
-  }
-}
+  const toggleColorMode = () => {
+    if (colorMode.value === "light") {
+      setColorMode("dark");
+    } else {
+      setColorMode("light");
+    }
+  };
 
-const setColorMode = (mode: "light" | "dark") => {
-  colorMode.value = mode
-  colorMode.preference = mode
-}
+  const setColorMode = (mode: "light" | "dark") => {
+    colorMode.value = mode;
+    colorMode.preference = mode;
+  };
 </script>

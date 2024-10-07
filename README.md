@@ -12,21 +12,21 @@ A Modern Landing page built with Nuxt 3 for your next project!
 
 1. Clone the repository
 
-  ```bash
-  git clone https://github.com/cn-2k/nuxt-startup-landing-page.git
-  ```
+```bash
+git clone https://github.com/cn-2k/nuxt-startup-landing-page.git
+```
 
 2. Install dependencies
 
-  ```bash
-  npm install
-  ```
+```bash
+npm install
+```
 
 3. Start dev server
 
-  ```bash
-  npm run dev
-  ```
+```bash
+npm run dev
+```
 
 ## Credits
 
@@ -51,4 +51,5 @@ MIT
 [license-href]: https://github.com/ZTL-UwU/shadcn-docs-nuxt/blob/main/LICENSE
 [nuxt-src]: https://img.shields.io/badge/Built%20With%20Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com/
+
 # taratech-new

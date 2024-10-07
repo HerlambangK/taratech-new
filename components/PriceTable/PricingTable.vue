@@ -1,91 +1,96 @@
 <template>
   <div>
     <!-- Pricing toggle -->
-    <div class="flex justify-center max-w-[14rem] m-auto mb-8 lg:mb-16">
-      <div class="relative flex w-full p-1.5 bg-white shadow-md dark:bg-slate-800/40 rounded-full">
-        <span
-          class="absolute inset-0 m-1 pointer-events-none"
-          aria-hidden="true"
-        >
+    <div class="m-auto mb-8 flex max-w-[14rem] justify-center lg:mb-16">
+      <div class="relative flex w-full rounded-full bg-white p-1.5 shadow-md dark:bg-slate-800/40">
+        <span class="pointer-events-none absolute inset-0 m-1" aria-hidden="true">
           <span
-            class="absolute inset-0 w-1/2 bg-purple-600 rounded-full shadow-sm shadow-indigo-950/10 transform transition-transform duration-150 ease-in-out"
-            :class="isAnnual ? 'translate-x-0' : 'translate-x-full'"
+            class="absolute inset-0 w-1/2 transform rounded-full bg-purple-600 shadow-sm shadow-indigo-950/10 transition-transform duration-150 ease-in-out"
+            :class="isBasic ? 'translate-x-0' : 'translate-x-full'"
           ></span>
         </span>
         <button
-          class="relative flex-1 text-sm font-semibold h-8 rounded-full focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150 ease-in-out"
-          :class="isAnnual ? 'text-white' : 'text-slate-500 dark:text-slate-400'"
-          :aria-pressed="isAnnual"
-          @click="isAnnual = true"
+          class="relative h-8 flex-1 rounded-full text-sm font-semibold transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600"
+          :class="isBasic ? 'text-white' : 'text-slate-500 dark:text-slate-400'"
+          :aria-pressed="isBasic"
+          @click="isBasic = true"
         >
-          Yearly <span
-            :class="isAnnual ? 'text-indigo-200' : 'text-slate-400 dark:text-slate-500'"
-          >-20%</span>
+          Basic Plan
         </button>
         <button
-          class="relative flex-1 text-sm font-semibold h-8 rounded-full focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150 ease-in-out"
-          :class="isAnnual ? 'text-slate-500 dark:text-slate-400' : 'text-white'"
-          :aria-pressed="isAnnual"
-          @click="isAnnual = false"
+          class="relative h-8 flex-1 rounded-full text-sm font-semibold transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600"
+          :class="isBasic ? 'text-slate-500 dark:text-slate-400' : 'text-white'"
+          :aria-pressed="!isBasic"
+          @click="isBasic = false"
         >
-          Monthly
+          Enterprise Plan
         </button>
       </div>
     </div>
 
-    <div class="max-w-sm mx-auto grid gap-6 lg:grid-cols-3 items-start lg:max-w-none">
-      <!-- Pricing tab 1 -->
-      <PriceTab
-        :yearly="isAnnual"
-        plan-name="Essential"
-        :price="{ yearly: 29, monthly: 35 }"
-        plan-description="There are many variations available, but the majority have suffered."
-        :features="[
-          'Unlimited placeholder texts',
-          'Consectetur adipiscing elit',
-          'Excepteur sint occaecat cupidatat',
-          'Officia deserunt mollit anim'
-        ]"
-      />
+    <!-- Pricing Cards -->
+    <div
+      class="mx-auto grid max-w-screen-lg items-start justify-items-center gap-6 lg:max-w-none lg:grid-cols-3"
+    >
+      <!-- Show 2 card items if isBasic is true -->
+      <template v-if="isBasic">
+        <!-- Basic Plan 1 -->
+        <PriceTab
+          :basic="true"
+          plan-name="Starter"
+          :price="{ basic: 5000000, custom: 'Call Us' }"
+          plan-description="Solusi website sederhana untuk bisnis kecil yang baru memulai digitalisasi."
+          :features="[
+            'Landing page sederhana dengan desain responsif',
+            'Optimisasi SEO dasar',
+            'Integrasi Google Analytics',
+            'Dukungan teknis 3 bulan',
+          ]"
+        />
 
-      <!-- Pricing tab 2 -->
-      <PriceTab
-        :yearly="isAnnual"
-        popular
-        plan-name="Perform"
-        :price="{ yearly: 49, monthly: 55 }"
-        plan-description="There are many variations available, but the majority have suffered."
-        :features="[
-          'Unlimited placeholder texts',
-          'Consectetur adipiscing elit',
-          'Excepteur sint occaecat cupidatat',
-          'Officia deserunt mollit anim',
-          'Predefined chunks as necessary'
-        ]"
-      />
+        <!-- Basic Plan 2 -->
+        <PriceTab
+          :basic="true"
+          popular
+          plan-name="Business"
+          :price="{ basic: 15000000, custom: 'Call Us' }"
+          plan-description="Paket website untuk bisnis kecil dan menengah yang ingin memperkuat kehadiran online."
+          :features="[
+            'Website multi-halaman dengan desain profesional',
+            'Optimisasi SEO tingkat lanjut',
+            'Integrasi pembayaran online (Midtrans)',
+            'Dukungan teknis 6 bulan',
+            'Integrasi media sosial',
+          ]"
+        />
+      </template>
 
-      <!-- Pricing tab 3 -->
-      <PriceTab
-        :yearly="isAnnual"
-        plan-name="Enterprise"
-        :price="{ yearly: 79, monthly: 85 }"
-        plan-description="There are many variations available, but the majority have suffered."
-        :features="[
-          'Unlimited placeholder texts',
-          'Consectetur adipiscing elit',
-          'Excepteur sint occaecat cupidatat',
-          'Officia deserunt mollit anim',
-          'Predefined chunks as necessary',
-          'Free from repetition'
-        ]"
-      />
+      <!-- Show 1 card item if isBasic is false (Enterprise Plan) -->
+      <template v-else>
+        <!-- Enterprise Plan -->
+        <PriceTab
+          :basic="false"
+          plan-name="Enterprise"
+          :price="{ basic: 50000000, custom: 'Call Us' }"
+          plan-description="Solusi komprehensif untuk perusahaan besar dengan kebutuhan website dan teknologi tingkat lanjut."
+          :features="[
+            'Website custom dengan fitur lengkap',
+            'Integrasi sistem ERP atau CRM',
+            'Integrasi pembayaran online skala besar',
+            'Optimisasi SEO tingkat lanjut dan kampanye pemasaran digital',
+            'Layanan hosting premium dengan keamanan SSL',
+            'Dukungan teknis dan pemeliharaan 12 bulan',
+          ]"
+        />
+      </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
-import PriceTab from "./PriceTab.vue"
+  import { ref } from "vue";
 
-const isAnnual = ref<boolean>(true)
+  import PriceTab from "./PriceTab.vue";
+
+  const isBasic = ref<boolean>(true);
 </script>

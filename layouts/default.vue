@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import Header from "@/components/Layout/Header/Header.vue"
-import MainContent from "@/components/Layout/MainContent.vue"
-import AppFooter from "@/components/Layout/Footer/AppFooter.vue"
+  import AppFooter from "@/components/Layout/Footer/AppFooter.vue";
+  import Header from "@/components/Layout/Header/Header.vue";
+  import MainContent from "@/components/Layout/MainContent.vue";
 </script>
