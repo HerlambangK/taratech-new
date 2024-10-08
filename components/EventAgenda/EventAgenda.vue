@@ -80,11 +80,11 @@
           <!-- Register Button -->
           <div class="p-4">
             <a v-if="event.link_daftar_optional" :href="event.link_daftar_optional"
-              class="block rounded bg-blue-500 px-4 py-2 text-center text-white" target="_blank">
+              class="block rounded bg-blue-400 px-4 py-2 text-center text-white" target="_blank">
               Register Now
             </a>
             <a v-else :href="`https://wa.me/6281578401214?text=Halo ! Saya ingin join acara ini ${event.title} !`"
-              class="block rounded bg-blue-500 px-4 py-2 text-center text-white" target="_blank">
+              class="block rounded bg-blue-400 px-4 py-2 text-center text-white" target="_blank">
               Register Now
             </a>
           </div>
