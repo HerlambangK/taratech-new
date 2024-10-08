@@ -73,7 +73,7 @@
               <span v-if="!event.diskon && event.price" class="text-green-500">Rp {{ event.price }}</span>
               <span v-if="event.diskon" class="text-red-500 line-through">Rp {{ event.price }}</span>
               <span v-if="event.diskon" class="font-bold text-green-500">Rp {{ event.diskon }}</span>
-              <span v-if="!event.diskon && !event.price">Free</span>
+              <!-- <span v-if="!event.diskon && !event.price">Free</span> -->
             </p>
           </div>
 
