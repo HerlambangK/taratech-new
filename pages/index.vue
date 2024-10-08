@@ -34,10 +34,7 @@
           <NuxtImg width="1920" :src="colorMode.value === 'dark' ? '/taratech_logo.png' : '/taratech_logo.png'"
             alt="Hero Image"
             class="max-w-full rounded-xl h-auto mx-auto [mask-image:linear-gradient(to_bottom,_white_40%,_transparent_100%)] z-[2] relative" />
-          <!-- <NuxtImg width="1920" height="1080"
-            :src="colorMode.value === 'dark' ? 'https://i.imgur.com/VNfMfim.png' : 'https://i.imgur.com/BU4uuJn.png'"
-            alt="Hero Image"
-            class="max-w-full rounded-xl h-auto mx-auto [mask-image:linear-gradient(to_bottom,_white_40%,_transparent_100%)] z-[2] relative" /> -->
+
         </ClientOnly>
       </div>
     </PageSection>
@@ -70,6 +67,7 @@
       <img src="/layanan/1.png" class="rounded-xl shadow-sm" />
       <!-- <ImagePlaceholder /> -->
     </PageSection>
+
     <PageSection v-motion-slide-visible-left>
       <div class="lg:order-last">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
@@ -133,6 +131,20 @@
 
       <!-- tabel harga -->
       <PricingTable />
+    </PageSection>
+
+    <PageSection v-motion-pop-visible column>
+      <div class="text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+          Events
+        </h2>
+        <div v-if="events.length">
+          <EventAgenda :events="events" />
+        </div>
+        <div v-else>
+          <p>No events available at the moment.</p>
+        </div>
+      </div>
     </PageSection>
 
     <PageSection v-motion-fade-visible column>
@@ -224,6 +236,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import PageSection from "@/components/PriceTable/PageSection.vue"
 import Marquee from "@/components/Marquee.vue"
 import DotPattern from "@/components/BackgroundPattern/DotPattern.vue"
@@ -232,6 +245,7 @@ import TestimonialCard from "@/components/Cards/TestimonialCard.vue"
 import PricingTable from "@/components/PriceTable/PricingTable.vue"
 import Spotlight from "@/components/Cards/Spotlight.vue"
 import SpotlightCard from "@/components/Cards/SpotlightCard.vue"
+import EventAgenda from "~/components/EventAgenda/EventAgenda.vue";
 
 const colorMode = useColorMode()
 
@@ -317,40 +331,94 @@ const mitra_kami = [
   }
 ]
 
-import { ref } from 'vue';
-
 const form = ref({
-  name: '',
-  email: '',
-  message: '',
-});
+  name: "",
+  email: "",
+  message: "",
+})
 
-const success = ref(false);
+const success = ref(false)
 
 const handleSubmit = async () => {
-  const { name, email, message } = form.value;
-  const waNumber = '+62 815-7840-1214';
-  const messageEncoded = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
-  const whatsappUrl = `https://wa.me/${waNumber}?text=${messageEncoded}`;
+  const { name, email, message } = form.value
+  const waNumber = "+62 815-7840-1214"
+  const messageEncoded = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`)
+  const whatsappUrl = `https://wa.me/${waNumber}?text=${messageEncoded}`
+
+  try {
+    await window.open(whatsappUrl, "_blank") // Open WhatsApp in a new tab
+    success.value = true // Show success message
+    resetForm() // Reset form values
+    showSuccessToast() // Show success toast
+  } catch (error) {
+    console.error("Error sending message", error)
+    // Optionally handle errors, e.g. show an error toast
+  }
+}
+
+const resetForm = () => {
+  form.value.name = ""
+  form.value.email = ""
+  form.value.message = ""
+}
+
+const showSuccessToast = () => {
   useToast().toast({
     title: "Message Sent",
     description: "Your message has been sent",
     variant: "success",
     icon: "i-heroicons-check-circle",
-  });
-  try {
-    window.open(whatsappUrl, '_blank');
-    success.value = true; // Show success toast
-    // Reset form
-    form.value.name = '';
-    form.value.email = '';
-    form.value.message = '';
-  } catch (error) {
-    console.error('Error sending message', error);
-    // Optionally handle errors
-  }
-};
+  })
+}
 
+import axios from 'axios'
+
+// const events = ref([]);
+
+const events = ref([
+  {
+    id: "1",
+    title: "Hilangkan Minus Mata",
+    description: "Punya mata minus tentu membuat aktivitas sehari-hari terasa kurang nyaman karena sulitnya melihat objek yang jauh dengan jelas. Lantas adakah cara untuk menghilangkan minus pada mata? Yuk temukan jawabannya dengan mengikuti IG live terbaru kami dengan tema \"Hilangkan Mata Minus Dalam 1x Tindakan\" yang akan dibawakan langsung oleh dr.Sri Astri Nanditya, Sp.M dari @ichc.clinic. Ayo catat jadwalnya di hari Kamis, 19 September jam 4 sore. Jangan sampai terlewat ya!",
+    img: "https://res.cloudinary.com/dw6i7jjhl/image/upload/v1726630778/hilangkan_mata_minus_tgsnns.jpg",
+    pembicara: "dr.sri astri nanditya,Sp.M",
+    price: "",
+    diskon: "",
+    date_event: "2024-10-08",
+    date_time: "17.00 - 18.00",
+    category: "education",
+    link_daftar_optional: "",
+    platform: "instagram"
+  }
+])
+// Fetch events data from Google Sheets API or public URL
+// const fetchEvents = async () => {
+//   const API_KEY = "AIzaSyDSKjuPGZ_i19DI70tVh1wvbENjOuE4d1s"
+//   const SHEET_ID = "1aW5-I8k4dYbDHE4GvFdgqWSELYfLAB_FL-Jgg2fCxl8"
+//   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/events?key=${API_KEY}`;
+
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     events.value = data;
+//     // Map the data to a more usable format
+//     if (data.values) {
+//       events.value = data.values.map((row: string[]) => ({
+//         name: row[0],
+//         date: row[1],
+//         time: row[2],
+//         location: row[3],
+//         description: row[4],
+//         link: row[5]
+//       }));
+//     }
+//   } catch (error) {
+//     console.error("Error fetching events:", error);
+//   }
+// };
+
+// Fetch events on component mount
+// onMounted(fetchEvents);
 const firstTestimonialsRow = testimonials.slice(0, testimonials.length / 2)
 const secondTestimonialsRow = testimonials.slice(testimonials.length / 2)
 </script>

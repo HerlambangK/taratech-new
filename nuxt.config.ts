@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@vueuse/motion/nuxt",
     "@vueuse/nuxt",
+    // "nuxt-google-sheets-parser",
   ],
 
   eslint: {
