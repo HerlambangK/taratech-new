@@ -2,7 +2,7 @@
   <div class="px-4 py-4 md:px-16">
     <!-- Title -->
     <div class="w-full py-4 text-center">
-      <h1 class="text-2xl font-bold">
+      <h1 class="text-xl font-bold">
         Event Kami
       </h1>
     </div>
