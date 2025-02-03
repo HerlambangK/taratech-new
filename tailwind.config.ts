@@ -16,7 +16,6 @@ export default <Partial<Config>>{
       },
     },
     extend: {
-      scrollBehavior: ["smooth"], // Add smooth scroll behavior
       keyframes: {
         "animated-beam": {
           "100%": { offsetDistance: "100%" },

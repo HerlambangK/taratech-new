@@ -18,12 +18,12 @@ useSeoMeta({
   twitterImage: "/public/taratech_logo.png",
   twitterCard: "summary_large_image",
   description: "A modern Startup Landing Page for your next project.",
-  ogDescription: "A modern Startup Landing Page for your next project.",
-});
+  ogDescription: "A modern Startup Landing Page for your next project."
+})
 
 defineOgImageComponent("Nuxt", {
   headline: false,
   title: "Nuxt 3 Startup Template",
-  description: "A modern Nuxt 3 Startup Landing Page for your next project.",
-});
+  description: "A modern Nuxt 3 Startup Landing Page for your next project."
+})
 </script>

@@ -160,6 +160,7 @@
         </div>
       </div>
 
+
       <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg">
         <Marquee pause-on-hover>
           <TestimonialCard v-for="item in firstTestimonialsRow" :key="item.username" v-bind="item" />
@@ -230,13 +231,11 @@
       </div>
       <Toast v-if="success" message="Message sent successfully!" @close="success = false" />
     </PageSection>
-
-
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from "vue"
 import PageSection from "@/components/PriceTable/PageSection.vue"
 import Marquee from "@/components/Marquee.vue"
 import DotPattern from "@/components/BackgroundPattern/DotPattern.vue"
@@ -245,7 +244,7 @@ import TestimonialCard from "@/components/Cards/TestimonialCard.vue"
 import PricingTable from "@/components/PriceTable/PricingTable.vue"
 import Spotlight from "@/components/Cards/Spotlight.vue"
 import SpotlightCard from "@/components/Cards/SpotlightCard.vue"
-import EventAgenda from "~/components/EventAgenda/EventAgenda.vue";
+import EventAgenda from "@/components/EventAgenda/EventAgenda.vue"
 
 const colorMode = useColorMode()
 
@@ -334,7 +333,7 @@ const mitra_kami = [
 const form = ref({
   name: "",
   email: "",
-  message: "",
+  message: ""
 })
 
 const success = ref(false)
@@ -371,7 +370,7 @@ const showSuccessToast = () => {
   })
 }
 
-import axios from 'axios'
+// import axios from 'axios'
 
 // const events = ref([]);
 

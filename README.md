@@ -1,12 +1,11 @@
-![Hero](https://github.com/cn-2k/nuxt-startup-landing-page/assets/59366705/ac8be1fc-e1fd-4efe-9a02-ab15b99397f7)
 
 # nuxt-startup-landing-page
 
 [![built with nuxt][nuxt-src]][nuxt-href]
 
-A Modern Landing page built with Nuxt 3 for your next project!
+A Modern Landing page!
 
-- [📺 Check it live](https://nuxt-startup-landing-page.vercel.app/)
+- [📺 Check it live]()
 
 ## Quick Start
 

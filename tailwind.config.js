@@ -1,4 +1,8 @@
+import AspectRatio from "@tailwindcss/aspect-ratio";
+import animate from "tailwindcss-animate";
+
 const { fontFamily } = require("tailwindcss/defaultTheme");
+// this
 
 /**@type {import('tailwindcss').Config} */
 module.exports = {
@@ -25,6 +29,13 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "animated-beam": {
+          "100%": { offsetDistance: "100%" },
+        },
+        "background-pan": {
+          from: { backgroundPosition: "0% center" },
+          to: { backgroundPosition: "-200% center" },
+        },
         "accordion-down": {
           from: { height: "0px" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -40,6 +51,22 @@ module.exports = {
         fadeOut: {
           from: { opacity: "1" },
           to: { opacity: "0" },
+        },
+        shimmer: {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - 100px) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + 100px) 0",
+          },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - 1rem))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - 1rem))" },
         },
         "collapse-down": {
           from: { height: "0px" },
@@ -57,6 +84,13 @@ module.exports = {
         fadeOut: "fadeOut 0.2s ease-out",
         "collapse-down": "collapse-down 0.2s ease-out",
         "collapse-up": "collapse-up 0.2s ease-out",
+        marquee: "marquee 20s linear infinite",
+        "marquee-vertical": "marquee-vertical 20s linear infinite",
+        "color-cycle": "color-cycle 8s linear infinite",
+        "animated-beam": "animated-beam 10s linear infinite",
+        "background-pan": "background-pan 3s linear infinite",
+        shimmer: "shimmer 6s infinite",
+        marquee: "marquee 20s linear infinite",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -95,5 +129,10 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms")({ strategy: "class" })],
+  plugins: [
+    animate,
+    AspectRatio,
+    require("tailwindcss-animate"),
+    require("@tailwindcss/forms")({ strategy: "class" }),
+  ],
 };
