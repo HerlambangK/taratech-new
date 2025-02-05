@@ -6,5 +6,15 @@ export default withNuxt({
     // 'no-console': 'off' // allow console.log in TypeScript files
     "vue/html-self-closing": 0,
     "vue/multi-word-component-names": 0,
+    "comma-dangle": [
+      "error",
+      {
+        arrays: "always-multiline",
+        objects: "always-multiline",
+        imports: "always-multiline",
+        exports: "always-multiline",
+        functions: "always-multiline",
+      },
+    ],
   },
 });
