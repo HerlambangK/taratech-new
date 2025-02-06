@@ -4,7 +4,7 @@
       <GridPattern />
       <div class="text-center">
         <div class="mb-10">
-          <SectionBadge text="New Promo Pembuatan Website Oktober 2024 ✨" icon="i-material-symbols-favorite" href="/"
+          <SectionBadge text="New Promo Pembuatan Website 2025 New Year! ✨" icon="i-material-symbols-favorite" href="/"
             shiny />
         </div>
         <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-7xl">
@@ -14,7 +14,7 @@
           kami perusahaan yang melayani pengembangan pembuatan sistem aplikasi untuk menyeselesaikan
           masalah bisnis anda.
         </div>
-        <div class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3">
+        <div class="my-10 flex flex-wrap justify-center gap-x-6 gap-y-3">
           <Button>
             Contact Us
             <Icon name="i-heroicons-arrow-right" class="ml-2 h-4 w-4" />
